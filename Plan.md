@@ -13,3 +13,5 @@
 **OPTIONAL**
 
 3.  Create a Page that has a list of "favorited" animals that will save on your phone through AsyncStorage.
+
+4.  Allow further filtering using breed, and/or size of animal.

@@ -1,44 +1,35 @@
 import React, { Component } from "react";
-import fetchJsonp from "fetch-jsonp";
-import $ from "jquery";
-import { View, Text, Dimensions } from "react-native";
+import { connect } from "react-redux";
+import { findPets } from "../../store/actions/petActions";
+import { View } from "react-native";
 import { Header } from "react-native-elements";
-import { mainPink, darkGrey, teal } from "../../../utils/_colors";
-
-const API_KEY = "664be6d32f6fa01896b5358760dfe320";
-
-const HeaderTextComponent = () => {
-  return (
-    <Text style={{ color: teal, fontSize: 15, fontWeight: "bold" }}>
-      LETS PET!
-    </Text>
-  );
-};
+import HeaderTextComponent from "../HeaderTextComponent";
+import { darkGrey } from "../../../utils/_colors";
 
 class Home extends Component {
   componentDidMount() {
-    fetch(
-      `http://api.petfinder.com/pet.find?format=json&key=${API_KEY}&animal=dog&location=84070&callback=callback`
-    )
-      .then(res => res.json())
-      .then(responseText => console.log(responseText))
-      .catch(err => console.log(err));
+    this.props.findPets("dog", "84070");
   }
+
   render() {
-    const width = Dimensions.get("window").width;
-    const height = Dimensions.get("window").height;
+    const { fontsLoaded } = this.props;
 
     return (
       <View>
         <Header
           backgroundColor={darkGrey}
-          leftComponent={{ icon: "menu", color: "#fff" }}
-          centerComponent={<HeaderTextComponent />}
-          rightComponent={{ icon: "home", color: "#fff" }}
+          centerComponent={fontsLoaded ? <HeaderTextComponent /> : null}
         />
       </View>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = ({ foundPets }) => ({
+  foundPets: foundPets.pets
+});
+
+export default connect(
+  mapStateToProps,
+  { findPets }
+)(Home);

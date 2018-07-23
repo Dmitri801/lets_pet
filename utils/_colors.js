@@ -1,5 +1,5 @@
-export const darkGrey = "#0F292F";
-export const mainWhite = "#CCCCCC";
-export const teal = "#14A098";
-export const mainPink = "#CB2D6F";
-export const red = "#501F3A";
+export const darkGrey = "#17252A";
+export const darkTeal = "#2B7A78";
+export const teal = "#3AAFA9";
+export const lightTeal = "#DEF2F1";
+export const mainWhite = "#FEFFFF";
