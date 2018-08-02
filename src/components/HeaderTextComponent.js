@@ -11,7 +11,7 @@ const HeaderTextComponent = () => {
           fontFamily: "open-sans-extra-bold-italic"
         }}
       >
-        LETS PET!
+        LETS PET
       </Text>
     </Text>
   );

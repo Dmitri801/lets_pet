@@ -15,3 +15,10 @@
 3.  Create a Page that has a list of "favorited" animals that will save on your phone through AsyncStorage.
 
 4.  Allow further filtering using breed, and/or size of animal.
+
+## Errors/Bugs
+
+- Incorrect zip code is not handled
+- Find a way around the no profile issue
+
+Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a> https://logomakr.com/0QwFv4
