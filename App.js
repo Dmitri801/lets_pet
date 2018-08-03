@@ -1,22 +1,75 @@
 import React from "react";
 import { teal, darkGrey, mainWhite, lightTeal } from "./utils/_colors";
+import { MaterialIcons, Entypo } from "@expo/vector-icons";
 import { Provider } from "react-redux";
 import { StyleSheet, StatusBar, View } from "react-native";
 import store from "./src/store/store";
 import Test from "./src/components/Test";
+import About from "./src/components/pages/About";
 import PetProfile from "./src/components/pages/PetProfile";
 import Home from "./src/components/pages/Home";
 import ImageView from "./src/components/pages/ImageView";
-import { createStackNavigator } from "react-navigation";
+import {
+  createStackNavigator,
+  createBottomTabNavigator
+} from "react-navigation";
 import { Asset, AppLoading, Font } from "expo";
+
+const TabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 13
+        },
+        activeTintColor: mainWhite,
+        style: {
+          backgroundColor: darkGrey
+        }
+      },
+
+      tabBarLabel: "Home",
+      tabBarIcon: ({ focused, tintColor }) => (
+        <MaterialIcons name="pets" size={30} color={tintColor} marginTop={40} />
+      )
+    }
+  },
+  About: {
+    screen: About,
+    navigationOptions: {
+      tabBarOptions: {
+        labelStyle: {
+          fontSize: 13
+        },
+        activeTintColor: mainWhite,
+        style: {
+          backgroundColor: darkGrey
+        }
+      },
+
+      tabBarLabel: "About",
+      tabBarIcon: ({ focused, tintColor }) => (
+        <Entypo name="info" size={30} color={tintColor} marginTop={40} />
+      )
+    }
+  }
+});
 
 const MainNavigator = createStackNavigator({
   Home: {
-    screen: Home,
+    screen: TabNavigator,
     navigationOptions: {
       headerTintColor: "#fff",
       headerStyle: {
         backgroundColor: darkGrey
+      },
+      title: "PET FAM",
+      headerTitleStyle: {
+        color: mainWhite,
+        fontSize: 30,
+        fontWeight: "200",
+        fontFamily: "open-sans-extra-bold"
       }
     }
   },

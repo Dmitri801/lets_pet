@@ -21,7 +21,8 @@ class Home extends Component {
     petListAnimation: new Animated.Value(0),
     homeImageOpacity: new Animated.Value(0),
     homeImageWidth: new Animated.Value(0),
-    homeImageHeight: new Animated.Value(0)
+    homeImageHeight: new Animated.Value(0),
+    cardHeight: new Animated.Value(180)
   };
 
   componentDidMount() {
@@ -63,6 +64,9 @@ class Home extends Component {
         toValue: 1,
         duration: 500
       }).start();
+      Animated.timing(this.state.cardHeight, {
+        toValue: 180
+      }).start();
     }
   };
   onTextChange = val => {
@@ -72,9 +76,9 @@ class Home extends Component {
   };
 
   onAnimalSelected = selectedPet => {
-    this.setState({
-      animalSelected: selectedPet
-    });
+    Animated.timing(this.state.cardHeight, {
+      toValue: 280
+    }).start(() => this.setState({ animalSelected: selectedPet }));
   };
 
   onPetSelected = id => {
@@ -83,7 +87,6 @@ class Home extends Component {
   };
 
   render() {
-    
     const { foundPets } = this.props;
     const { fontsLoaded } = this.state;
     return (
@@ -92,6 +95,7 @@ class Home extends Component {
           homeImageOpacity={this.state.homeImageOpacity}
           homeImageWidth={this.state.homeImageWidth}
           homeImageHeight={this.state.homeImageHeight}
+          cardHeight={this.state.cardHeight}
           error={this.state.error}
           animalSelected={this.state.animalSelected}
           onAnimalSelected={this.onAnimalSelected}

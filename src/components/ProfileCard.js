@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginTop: 10,
     flex: 0.97,
-    width: Dimensions.get("window").width > 375 ? 400 : 320,
+    width: Dimensions.get("window").width > 375 ? 400 : 340,
     backgroundColor: darkGrey
   },
   bioContainer: {

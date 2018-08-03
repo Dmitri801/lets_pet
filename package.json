@@ -29,6 +29,7 @@
     "npm": "^6.2.0",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-blur": "^3.2.2",
     "react-native-elements": "^0.19.1",
     "react-native-interactive-image-gallery": "^0.1.2",
     "react-native-loading-spinner-overlay": "^0.5.2",

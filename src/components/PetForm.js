@@ -11,7 +11,7 @@ import { FormInput, FormValidationMessage, Icon } from "react-native-elements";
 import ModalSelector from "react-native-modal-selector";
 import AwesomeButton from "react-native-really-awesome-button";
 import Image from "react-native-scalable-image";
-
+import Form from "./common/Form";
 const PetForm = ({
   animalSelected,
   onAnimalSelected,
@@ -21,25 +21,21 @@ const PetForm = ({
   homeImageOpacity,
   homeImageWidth,
   homeImageHeight,
+  cardHeight,
   error
 }) => {
-  console.log(homeImageOpacity);
   let index = 0;
   const data = [
     { key: index++, label: "Cat", value: "cat" },
     { key: index++, label: "Dog", value: "dog" },
     { key: index++, label: "Bird", value: "bird" },
     { key: index++, label: "Barnyard", value: "barnyard" },
-    { key: index++, label: "Reptile", value: "reptile" },
+    { key: index++, label: "Reptiles & Fish", value: "reptile" },
     { key: index++, label: "Small Furry", value: "smallfurry" }
   ];
   return (
-    <View
-      style={[
-        styles.cardContainer,
-        shadowStyle,
-        { height: animalSelected !== "" ? 280 : 180 }
-      ]}
+    <Animated.View
+      style={[styles.cardContainer, shadowStyle, { height: cardHeight }]}
     >
       <View
         style={[
@@ -77,38 +73,15 @@ const PetForm = ({
           </Text>
         ) : null}
         {animalSelected !== "" && (
-          <View>
-            <FormInput
-              onChangeText={onTextChange}
-              placeholder="Enter A Zip Code"
-              placeholderTextColor={teal}
-              selectionColor={darkTeal}
-              containerStyle={{ borderBottomColor: mainWhite }}
-              inputStyle={{
-                color: teal,
-                width: "70%"
-              }}
-              value={zipInputVal}
-            />
-            <FormValidationMessage style={{ padding: 20 }}>
-              {error ? "Please Enter A Valid Zip Code" : ""}{" "}
-            </FormValidationMessage>
-            <AwesomeButton
-              style={{ marginTop: 10 }}
-              height={30}
-              width={250}
-              backgroundColor={lightTeal}
-              backgroundShadow={darkGrey}
-              backgroundDarker={darkTeal}
-              textColor={darkGrey}
-              onPress={onSearchClick}
-            >
-              Search
-            </AwesomeButton>
-          </View>
+          <Form
+            onTextChange={onTextChange}
+            zipInputVal={zipInputVal}
+            onSearchClick={onSearchClick}
+            error={error}
+          />
         )}
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
