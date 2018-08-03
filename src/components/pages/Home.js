@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { isValidZip } from "../../../utils/validate";
 import { connect } from "react-redux";
-import { Font } from "expo";
 import { findPets, getPet } from "../../store/actions/petActions";
 import { teal, mainWhite } from "../../../utils/_colors";
-import { Header } from "react-native-elements";
-import HeaderTextComponent from "../HeaderTextComponent";
-import { View, StyleSheet, Animated } from "react-native";
+import { View, StyleSheet, Animated, Dimensions } from "react-native";
 import PetForm from "../PetForm";
 import PetList from "../PetList";
 
@@ -86,6 +83,7 @@ class Home extends Component {
   };
 
   render() {
+    
     const { foundPets } = this.props;
     const { fontsLoaded } = this.state;
     return (
