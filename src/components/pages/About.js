@@ -13,7 +13,7 @@ const About = () => {
       blurRadius={5}
     >
       <Text
-        style={{
+        style={{ 
           fontSize: 30,
           color: darkGrey,
           textAlign: "center",
@@ -22,7 +22,7 @@ const About = () => {
       >
         About
       </Text>
-      <View style={styles.cardContainer}>
+      <View style={[styles.cardContainer, shadowStyle]}>
         <Text style={{ color: mainWhite, fontFamily: "open-sans-extra-bold" }}>
           This app was developed and designed by DMI Web Design - in conjunction
           with the Pet Finder API.
@@ -58,6 +58,13 @@ const About = () => {
       </View>
     </ImageBackground>
   );
+};
+
+const shadowStyle = {
+  shadowOpacity: 0.6,
+  shadowRadius: 2,
+  shadowColor: darkGrey,
+  shadowOffset: { width: -2, height: 2 }
 };
 
 const styles = StyleSheet.create({

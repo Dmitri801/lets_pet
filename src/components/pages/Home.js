@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { isValidZip } from "../../../utils/validate";
 import { connect } from "react-redux";
-import { findPets, getPet } from "../../store/actions/petActions";
+import { findPets, getPet, resetError } from "../../store/actions/petActions";
 import { teal, mainWhite } from "../../../utils/_colors";
-import { View, StyleSheet, Animated, Dimensions } from "react-native";
+import { View, StyleSheet, Animated, Alert } from "react-native";
 import PetForm from "../PetForm";
 import PetList from "../PetList";
 
@@ -38,6 +38,13 @@ class Home extends Component {
     }).start();
   }
 
+  componentDidUpdate() {
+    if(this.props.zipError) {
+      Alert.alert('Zip Code Error', 'Sorry, We had trouble finding information with that zip code..')
+      this.props.resetError();
+    }
+  }
+
   static navigationOptions = () => {
     return {
       title: "PET FAM",
@@ -54,7 +61,7 @@ class Home extends Component {
     if (!isValidZip(this.state.zipInputVal)) {
       this.setState({ error: true });
     } else {
-      this.props.findPets(this.state.animalSelected, this.state.zipInputVal);
+      this.props.findPets(this.state.animalSelected, this.state.zipInputVal)
       this.setState({
         error: false,
         animalSelected: "",
@@ -87,8 +94,8 @@ class Home extends Component {
   };
 
   render() {
-    const { foundPets } = this.props;
-    const { fontsLoaded } = this.state;
+    const { foundPets} = this.props;
+    
     return (
       <View style={styles.homeContainer}>
         <PetForm
@@ -126,10 +133,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ foundPets }) => ({
-  foundPets: foundPets.pets
+  foundPets: foundPets.pets,
+  zipError: foundPets.error
 });
 
 export default connect(
   mapStateToProps,
-  { findPets, getPet }
+  { findPets, getPet, resetError }
 )(Home);

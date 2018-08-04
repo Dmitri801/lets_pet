@@ -159,15 +159,16 @@ const styles = StyleSheet.create({
   bioContainer: {
     marginTop: Dimensions.get("window").width > 375 ? 25 : 0,
     flex: 0.95,
-    width: Dimensions.get("window").width > 375 ? 200 : 150,
+    width: Dimensions.get("window").width > 375 ? 200 : 170,
     padding: 10,
     borderRightWidth: Dimensions.get("window").width > 320 ? 5 : null,
     borderRightColor: darkTeal
   },
   contactContainer: {
     position: "absolute",
+    alignItems: 'center',
     top: Dimensions.get("window").width > 375 ? 250 : 200,
-    left: Dimensions.get("window").width > 375 ? 200 : 130,
+    left: Dimensions.get("window").width > 375 ? 200 : 160,
     flex: 0.95,
     width: Dimensions.get("window").width > 375 ? 180 : 150,
     borderTopWidth: Dimensions.get("window").width > 375 ? 5 : null,
