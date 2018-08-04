@@ -39,9 +39,10 @@ const About = () => {
         </Text>
         <Text
           style={{
-            color: mainWhite,
+            color: lightTeal,
             fontFamily: "open-sans-light",
-            marginTop: 10
+            marginTop: 10,
+            fontSize: 14
           }}
         >
           For more information on the animals visit petfinder.com
@@ -54,6 +55,16 @@ const About = () => {
           }}
         >
           Logo Credits: logomakr.com
+        </Text>
+        <Text
+          style={{
+            color: mainWhite,
+            fontFamily: "open-sans-light",
+            fontSize: 8
+            
+          }}
+        >
+          Check out the new logo I created here https://logomakr.com/0QwFv4
         </Text>
       </View>
     </ImageBackground>

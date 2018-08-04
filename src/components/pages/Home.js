@@ -40,7 +40,7 @@ class Home extends Component {
 
   componentDidUpdate() {
     if(this.props.zipError) {
-      Alert.alert('Zip Code Error', 'Sorry, We had trouble finding information with that zip code..')
+      Alert.alert('Zip Code Error', "Sorry, We had trouble finding information with that zip code. Make sure you are entering a valid zip code 🙊")
       this.props.resetError();
     }
   }

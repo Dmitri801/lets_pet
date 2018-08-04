@@ -69,7 +69,8 @@ const MainNavigator = createStackNavigator({
         color: mainWhite,
         fontSize: 30,
         fontWeight: "200",
-        fontFamily: "open-sans-extra-bold"
+        fontFamily: "open-sans-extra-bold",
+        
       }
     }
   },

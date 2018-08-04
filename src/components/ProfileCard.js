@@ -11,7 +11,7 @@ import {
 import {
   darkTeal,
   darkGrey,
-  mainWhite,
+  mainWhite, 
   lightTeal,
   teal
 } from "../../utils/_colors";
@@ -98,7 +98,7 @@ const ProfileCard = ({ pet, routeToImageView, opacity }) => {
             </Text>
             <ScrollView>
               <Text
-                style={{
+                style={{ 
                   fontSize: 15,
                   color: lightTeal,
                   fontWeight: "200"
