@@ -22,3 +22,5 @@
 - Find a way around the no profile issue
 
 Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a> https://logomakr.com/0QwFv4
+
+Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a> https://logomakr.com/5ftAPp

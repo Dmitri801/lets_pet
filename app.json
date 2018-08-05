@@ -1,6 +1,19 @@
 {
   "expo": {
     "sdkVersion": "27.0.0",
+    "name": "Pet Fam",
+    "description": "Browse the pet family in your area, and find that special animal to add to your family!",
+    "githubUrl": "https://github.com/Dmitri801/quizU",
+    "slug": "pet-fam",
+    "orientation": "portrait",
+    "version": "1.0",
+    "icon": "https://image.ibb.co/crvpdz/Logo_Makr_5ft_APp.png",
+    "ios": {
+      "bundleIdentifier": "org.petfam.exp"
+    },
+    "android": {
+      "package": "org.petfam.exp"
+    },
     "splash": {
       "image": "./assets/img/logo.png",
       "backgroundColor": "#17252A"

@@ -17,6 +17,7 @@ import {
 } from "../../utils/_colors";
 import Image from "react-native-scalable-image";
 const ProfileCard = ({ pet, routeToImageView, opacity }) => {
+
   let breedStr;
   if (Array.isArray(pet.breeds.breed)) {
     breedStr = pet.breeds.breed[0].$t.substring(0, 18);
@@ -41,6 +42,7 @@ const ProfileCard = ({ pet, routeToImageView, opacity }) => {
         >
           <Image
             width={Dimensions.get("window").width > 375 ? 200 : 150}
+            style={Dimensions.get("window").width === 320 ? {marginLeft: 10} : null}
             source={{
               uri:
                 pet.media && pet.media.photos
@@ -54,7 +56,7 @@ const ProfileCard = ({ pet, routeToImageView, opacity }) => {
               style={
                 Dimensions.get("window").width > 375
                   ? { color: teal, marginBottom: 50 }
-                  : { color: teal, marginBottom: 50, fontSize: 10 }
+                  : { color: teal, marginBottom: 50, fontSize: 10, marginLeft: 10 }
               }
             >
               Tap Me To View My Pics
@@ -158,6 +160,7 @@ const styles = StyleSheet.create({
   },
   bioContainer: {
     marginTop: Dimensions.get("window").width > 375 ? 25 : 0,
+    marginLeft: Dimensions.get("window").width === 320 ? 10 : 0,
     flex: 0.95,
     width: Dimensions.get("window").width > 375 ? 200 : 170,
     padding: 10,
